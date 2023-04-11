@@ -51,6 +51,7 @@ export default function Home() {
           <motion.div variants={FADE_DOWN_ANIMATION_VARIANTS}>
             <div className="container mx-auto grid max-w-screen-lg grid-cols-3 gap-10">
               {collection.map((item, index) => {
+                // @ts-ignore
                 return <CardMintCollectable className="col-span-1" {...item} key={index} />
               })}
             </div>
