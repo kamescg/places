@@ -4,11 +4,8 @@ import classNames from 'clsx'
 import Image from 'next/image'
 
 import { siteConfig } from '@/config/site'
-import BranchButtonLoginOrAccount from '@/integrations/siwe/components/branch-button-login-or-account'
 import useScroll from '@/lib/hooks/use-scroll'
 
-import { NavigationMenuGeneral } from './navigation-menu-general'
-import { UserDropdown } from './user-dropdown'
 import { BranchColorMode } from '../shared/branch-color-mode'
 import { LinkComponent } from '../shared/link-component'
 import { ResponsiveMobileAndDesktop } from '../shared/responsive-mobile-and-desktop'
@@ -41,9 +38,6 @@ export function Header(props: Props) {
                 <Image alt="Logo" src="/logo-white.png" width={32} height={32} />
               </BranchColorMode>
             </LinkComponent>
-            <div className="">
-              <UserDropdown />
-            </div>
           </div>
         </>
         <>
