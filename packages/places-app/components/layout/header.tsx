@@ -54,7 +54,6 @@ export function Header(props: Props) {
           <div className="flex flex-1 justify-center lg:px-10"></div>
 
           <div className="flex items-center gap-4">
-            <span className="">About</span>
             <ThemeToggle />
           </div>
         </>

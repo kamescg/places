@@ -24,7 +24,7 @@ export const CardMintCollectable = ({ className, name, description, price, image
           <Image width={600} height={600} className="CardMintCollectable_image" src={image as string} alt="Collectable" />
         </DialogTrigger>
         <DialogContentXL className="p-10">
-          <img className="" src={image} alt="Collectable" />
+          <Image width={800} height={800} className="CardMintCollectable_image" src={image as string} alt="Collectable" />
           <div className="">
             <h3 className="text-lg font-normal">{name}</h3>
             <p className="text-sm text-gray-500">{description}</p>
@@ -33,12 +33,12 @@ export const CardMintCollectable = ({ className, name, description, price, image
       </Dialog>
 
       <h3 className="text-lg font-normal">{name}</h3>
-      <p className="text-sm text-gray-500">{description}</p>
+      <p className="mt-2 text-sm text-gray-500">{description}</p>
 
       <div className="mt-4 flex items-center justify-between">
-        <span className="text-sm font-bold text-gray-500">Ξ {price}</span>
+        <span className="text-sm font-bold text-gray-500">Price: Ξ {price}</span>
         <ButtonPlaceMint address={address} price={price}>
-          <span className="tag tag-light">Mint</span>
+          <span className="tag tag-emerald">Mint</span>
         </ButtonPlaceMint>
       </div>
     </div>
