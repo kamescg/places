@@ -28,11 +28,11 @@ export default async function handler(req: NextRequest) {
         <div
           tw="w-1/2 h-full flex items-center justify-center overflow-hidden"
           style={{
-            // backgroundImage: 'url(https://ipfs.io/ipfs/QmQBRgaK5TWvL8xQGkVz8YwwX4xpHTangVPEdz9NXkF39W)',
+            backgroundImage: 'url(https://red-effective-snake-988.mypinata.cloud/ipfs/QmXXYgXWcp2UhSjoLmhX7nvZW9cSBTFojYKcHFtSqaMwpE)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}>
-          <img src={new URL('../../public/og.png', import.meta.url).toString()} alt="Logo" tw="object-cover object-contain" />
+          {/* <img src={new URL('../../public/og.png', import.meta.url).toString()} alt="Logo" tw="object-cover object-contain" /> */}
         </div>
         <div tw="flex flex-col w-1/2 p-10">
           <h1
