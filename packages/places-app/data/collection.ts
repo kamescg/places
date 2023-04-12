@@ -4,7 +4,7 @@ export const collection = [
     description: 'A beautiful city by the bay.',
     price: '0.01',
     image: '/story/san-francisco.png',
-    address: '0xca00a364f1ef0da7d3f039f4f6e568dc104263b5',
+    address: '0xca00A364F1ef0da7D3F039F4f6e568Dc104263B5',
   },
   {
     name: 'Rio de Janeiro',

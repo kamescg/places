@@ -1,10 +1,11 @@
 import * as React from 'react'
 
 import classNames from 'clsx'
-import { BigNumber, utils } from 'ethers'
+import { utils } from 'ethers'
 import { useAccount, useContractWrite } from 'wagmi'
 
 import { usePreparePlaceMint } from '@/lib/blockchain'
+import { useHandleWagmiState } from '@/lib/hooks/use-handle-wagmi-state'
 
 interface ButtonPlaceMintProps {
   children?: React.ReactNode
@@ -22,12 +23,20 @@ export const ButtonPlaceMint = ({ children, className, address, price = '0' }: B
       value: utils.parseEther(price),
     },
   })
-  const { write } = useContractWrite(mintPlaceAction.config)
+
+  const action = useContractWrite(mintPlaceAction.config)
   const handleOnClick = async () => {
-    if (write) {
-      write()
+    if (action.write) {
+      action.write()
     }
   }
+
+  useHandleWagmiState({
+    isSuccess: action.isSuccess,
+    isError: action.isError,
+    error: action.error,
+  })
+
   const classes = classNames(className, 'ButtonPlaceMint')
   return (
     <button className={classes} onClick={handleOnClick}>

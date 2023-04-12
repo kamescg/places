@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import { BigNumber, BigNumberish } from 'ethers'
+import { BigNumberish } from 'ethers'
 
-import { useErc721TokenUri } from '../blockchain'
+import { usePlaceContractUri } from '../blockchain'
 
 interface ERC721Metadata {
   name: string
@@ -14,11 +14,10 @@ interface ERC721Metadata {
   }>
 }
 
-export function useERC721Metadata({ address, tokenId }: { address: `0x${string}`; tokenId: BigNumberish }): ERC721Metadata | undefined {
+export function useERC721ContractMetadata({ address }: { address: `0x${string}` }): ERC721Metadata | undefined {
   const [tokenData, setTokenData] = useState<ERC721Metadata | undefined>()
-  const txRead = useErc721TokenUri({
+  const txRead = usePlaceContractUri({
     address: address,
-    args: [tokenId as BigNumber],
   })
 
   useEffect(() => {
@@ -45,5 +44,3 @@ export function useERC721Metadata({ address, tokenId }: { address: `0x${string}`
 
   return tokenData
 }
-
-export default useERC721Metadata

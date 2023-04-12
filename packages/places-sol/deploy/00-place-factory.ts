@@ -9,6 +9,6 @@ export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
     contract: "PlaceFactory",
     from: deployer,
     skipIfAlreadyDeployed: false,
-    log: true
+    log: true,
   });
 }

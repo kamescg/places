@@ -4,33 +4,41 @@ import classNames from 'clsx'
 import Image from 'next/image'
 
 import ButtonPlaceMint from './button-place-mint'
+import { LinkComponent } from './shared/link-component'
 import { Dialog, DialogContentXL, DialogTrigger } from './ui/dialog'
 
-interface CardMintCollectableProps {
+interface CardMintCollectibleProps {
   className?: string
   name?: string
   description?: string
   price?: string
   image?: string
   address: `0x${string}`
+  dialogEnabled?: boolean
 }
 
-export const CardMintCollectable = ({ className, name, description, price, image, address }: CardMintCollectableProps) => {
-  const classes = classNames(className, 'CardMintCollectable')
+export const CardMintCollectible = ({ className, name, description, price, image, address, dialogEnabled }: CardMintCollectibleProps) => {
+  const classes = classNames(className, 'CardMintCollectible')
   return (
     <div className={classes}>
-      <Dialog>
-        <DialogTrigger>
-          <Image width={600} height={600} className="CardMintCollectable_image" src={image as string} alt="Collectable" />
-        </DialogTrigger>
-        <DialogContentXL className="p-10">
-          <Image width={800} height={800} className="CardMintCollectable_image" src={image as string} alt="Collectable" />
-          <div className="">
-            <h3 className="text-lg font-normal">{name}</h3>
-            <p className="text-sm text-gray-500">{description}</p>
-          </div>
-        </DialogContentXL>
-      </Dialog>
+      {!dialogEnabled ? (
+        <LinkComponent href={`/place/${address}`}>
+          <Image width={600} height={600} className="CardMintCollectible_image" src={image as string} alt="Collectible" />
+        </LinkComponent>
+      ) : (
+        <Dialog>
+          <DialogTrigger>
+            <Image width={600} height={600} className="CardMintCollectible_image" src={image as string} alt="Collectible" />
+          </DialogTrigger>
+          <DialogContentXL className="p-10">
+            <Image width={800} height={800} className="CardMintCollectible_image" src={image as string} alt="Collectible" />
+            <div className="">
+              <h3 className="text-lg font-normal">{name}</h3>
+              <p className="text-sm text-gray-500">{description}</p>
+            </div>
+          </DialogContentXL>
+        </Dialog>
+      )}
 
       <h3 className="text-lg font-normal">{name}</h3>
       <p className="mt-2 text-sm text-gray-500">{description}</p>
@@ -45,4 +53,4 @@ export const CardMintCollectable = ({ className, name, description, price, image
   )
 }
 
-export default CardMintCollectable
+export default CardMintCollectible

@@ -6,11 +6,11 @@ const fs = require("fs");
 const exec = util.promisify(require("child_process").exec);
 const hardhat = require("hardhat");
 
-const info = msg => console.log(chalk.dim(msg));
-const success = msg => console.log(chalk.green(msg));
-const error = msg => console.error(chalk.red(msg));
+const info = (msg) => console.log(chalk.dim(msg));
+const success = (msg) => console.log(chalk.green(msg));
+const error = (msg) => console.error(chalk.red(msg));
 
-const getContract = async name => {
+const getContract = async (name) => {
   const { deployments } = hardhat;
   const signers = await hardhat.ethers.getSigners();
   return hardhat.ethers.getContractAt(name, (await deployments.get(name)).address, signers[0]);
@@ -49,7 +49,7 @@ const verifyAddress = async (address, name, path = "", args = "") => {
   }
 };
 
-const verifyProxyFactoryInstance = async name => {
+const verifyProxyFactoryInstance = async (name) => {
   const proxyFactory = await getContract(name);
   const instanceAddress = await proxyFactory.instance();
   info(`Verifying ${name} Instance at ${instanceAddress}...`);
@@ -89,7 +89,7 @@ async function verifyEtherscanClone() {
   let toplevelContracts = [];
 
   // read deployment JSON files
-  fs.readdirSync(filePath).filter(fileName => {
+  fs.readdirSync(filePath).filter((fileName) => {
     if (fileName.includes(".json")) {
       const contractName = fileName.substring(0, fileName.length - 5).trim(); // strip .json
       const contractDirPath = find.fileSync(contractName + ".sol", "./contracts")[0];
@@ -104,18 +104,18 @@ async function verifyEtherscanClone() {
         address: deployment.address,
         contractPath: contractDirPath + ":" + contractName,
         contractName,
-        constructorArgs: deployment.args
+        constructorArgs: deployment.args,
       });
     }
   });
 
   info(`Attempting to verify ${toplevelContracts.length} top level contracts`);
 
-  toplevelContracts.forEach(async contract => {
+  toplevelContracts.forEach(async (contract) => {
     let args = "";
 
     if (contract.constructorArgs.length > 0) {
-      contract.constructorArgs.forEach(arg => {
+      contract.constructorArgs.forEach((arg) => {
         args = args.concat('"', arg, '" '); // format constructor args in correct form - "arg" "arg"
       });
     }

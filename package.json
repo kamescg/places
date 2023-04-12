@@ -8,6 +8,7 @@
 	  "deploy:dev": "turbo run deploy:dev",
 	  "lint": "turbo run lint",
 	  "format": "turbo run format",
+	  "test": "turbo run test",
 	  "fix": "syncpack fix-mismatches --source 'apps/*/package.json'"
 	},
 	"devDependencies": {

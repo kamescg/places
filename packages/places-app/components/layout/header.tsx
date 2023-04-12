@@ -1,12 +1,10 @@
 import React from 'react'
 
 import classNames from 'clsx'
-import Image from 'next/image'
 
 import { siteConfig } from '@/config/site'
 import useScroll from '@/lib/hooks/use-scroll'
 
-import { BranchColorMode } from '../shared/branch-color-mode'
 import { LinkComponent } from '../shared/link-component'
 import { ResponsiveMobileAndDesktop } from '../shared/responsive-mobile-and-desktop'
 import { ThemeToggle } from '../shared/theme-toggle'
@@ -33,11 +31,14 @@ export function Header(props: Props) {
         <>
           <div className="flex w-full justify-between p-4">
             <LinkComponent href="/" className="flex flex-1 items-center ">
-              <BranchColorMode>
-                <Image alt="Logo" src="/logo-dark.png" width={32} height={32} />
-                <Image alt="Logo" src="/logo-white.png" width={32} height={32} />
-              </BranchColorMode>
+              <span className="text-3xl">{siteConfig.emoji}</span>
             </LinkComponent>
+            <div className="flex items-center gap-4">
+              <LinkComponent className="flex items-center" href="/create">
+                <span className="tag tag-light">Create</span>
+              </LinkComponent>
+              <ThemeToggle />
+            </div>
           </div>
         </>
         <>
@@ -48,6 +49,9 @@ export function Header(props: Props) {
           <div className="flex flex-1 justify-center lg:px-10"></div>
 
           <div className="flex items-center gap-4">
+            <LinkComponent className="flex items-center" href="/create">
+              <span className="tag tag-light">Create</span>
+            </LinkComponent>
             <ThemeToggle />
           </div>
         </>

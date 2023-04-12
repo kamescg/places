@@ -19,8 +19,8 @@ export const SITE_CANONICAL = 'https://places.kames.me'
 export const siteConfig: SiteConfig = {
   name: 'places',
   title: 'places - ethereal adventures',
-  emoji: '⍢',
-  description: "A collection of places I've traveled during my Ethereal adventures.",
+  emoji: '🗺️',
+  description: "A collection of places I've traveled too during my Ethereal adventures.",
   localeDefault: 'en',
   author: 'Kames Geraghty',
   links: {

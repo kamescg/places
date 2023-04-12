@@ -6,26 +6,23 @@
       "outputs": ["build/**", "dist/**"],
       "dependsOn": ["^build"]
     },
-    "export": {
-      "outputs": ["out/**"],
-      "dependsOn": ["^build"]
+    "clean": {
+      "cache": false
     },
-    "test": {
-      "outputs": ["coverage/**"],
-      "dependsOn": []
-    },
-    "format": {},
     "dev": {
       "inputs": ["src/**", "public/**", "package.json"],
       "outputs": ["dist/**", ".next/**", "node_modules/**"],
       "cache": false,
       "persistent": true
     },
-    "deployt:dev": {
-      "cache": false
+    "export": {
+      "outputs": ["out/**"],
+      "dependsOn": ["^build"]
     },
-    "clean": {
-      "cache": false
+    "format": {},
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": []
     }
   }
 } 

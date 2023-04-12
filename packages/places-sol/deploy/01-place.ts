@@ -14,7 +14,7 @@ export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
     image: "ipfs://QmR1tCdArDcAKmCJezMhZxRGqfxhMdTHmGJZAhtriFa41t",
     externalLink: "https://places.kames.me",
     sellerFeeBasisPoints: "0",
-    feeRecipient: "0x0000000000000000000000000000000000000000"
+    feeRecipient: "0x0000000000000000000000000000000000000000",
   };
 
   const { deploy } = deployments;
@@ -24,6 +24,6 @@ export default async function deploy(hardhat: HardhatRuntimeEnvironment) {
     from: deployer,
     skipIfAlreadyDeployed: false,
     args: [name, symbol, imageURI, price, deployer, contactInformation],
-    log: true
+    log: true,
   });
 }

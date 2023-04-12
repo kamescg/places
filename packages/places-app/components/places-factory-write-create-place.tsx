@@ -80,6 +80,7 @@ function Form() {
           <label>Image URI</label>
           <input
             className="input"
+            placeholder="ipfs://Qm..."
             {...register('uri', {
               required: true,
             })}
@@ -88,7 +89,7 @@ function Form() {
         </div>
         <div className="">
           <label>Price</label>
-          <input className="input" {...register('price')} />
+          <input className="input" {...register('price')} placeholder="0.01" />
           {errors.price && <span>This field is required</span>}
         </div>
         <button type="submit" className="btn btn-emerald">

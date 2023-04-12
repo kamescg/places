@@ -20,7 +20,7 @@ const config: HardhatUserConfig = {
     runOnCompile: true,
     clear: true,
     flat: false,
-    except: ['./abis/ERC20.sol', './abis/ERC721.sol'],
+    except: ['./abis/ERC721.sol'],
   },
   typechain: {
     outDir: 'types',

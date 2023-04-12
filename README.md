@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/3408362/231411749-c1e3551c-5cad-452f-b664-077b73c6c1ee.png)
 
-# 🗺️ Places - NFT App Template
+# 🗺️ Places - Digital Collectible App Template
 
 Places uses the [TurboETH](https://github.com/turbo-eth/template-web3-app) and [Solbase](https://github.com/Sol-DAO/solbase) for a simple and gas optimized digital collectable application you can spin up minutes.
 
@@ -37,7 +37,7 @@ pnpm build
 
 ## 1-Click Deploy to Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkamescg%2Fplaces&project-name=Places&repository-name=places&demo-title=Places&env=NEXT_PUBLIC_ALCHEMY_API_KEY&envDescription=How%20to%20get%20these%20env%20variables%3A&envLink=https%3A%2F%2Fgithub.com%2Fkamescg%2Fplaces%2Fblob%2Fmain%packages%2Fplaces-app%2F.env.example)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkamescg%2Fplaces&project-name=Places&repository-name=places&demo-title=Places&env=NEXT_PUBLIC_PROVIDER_PUBLIC&envDescription=How%20to%20get%20these%20env%20variables%3A&envLink=https%3A%2F%2Fgithub.com%2Fkamescg%2Fplaces%2Fblob%2Fmain%packages%2Fplaces-app%2F.env.example)
 
 ### Configuration
 Since Places is a TurboRepo application we have to manually set the deployment configuration.
@@ -50,6 +50,21 @@ Since Places is a TurboRepo application we have to manually set the deployment c
 #### Root Directory
 - `packages/places-app`
 - ☑️ Include source files outside of the Root Directory in the Build Step
+
+#### Environment Variables
+The application requires a JSON-RPC provider. The `public` provider can be used for testing, but in production it's recommended to use [Alchemy](https://www.alchemy.com/) or [Infura](https://www.infura.io/)
+
+```
+# Public Provider(s) - Useful for testing
+NEXT_PUBLIC_PROVIDER_PUBLIC=true
+
+# Alchemy: https://www.alchemy.com
+NEXT_PUBLIC_ALCHEMY_API_KEYs=
+
+# Infura: https://www.infura.io
+NEXT_PUBLIC_INFURA_API_KEY=
+```
+
 
 [Click here for an image preview of the configration](https://user-images.githubusercontent.com/3408362/231420316-ee406a1c-ba4c-46b5-a7d7-571c390956c5.png)
 
