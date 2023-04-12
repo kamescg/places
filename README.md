@@ -1,3 +1,106 @@
-# Places
+![image](https://user-images.githubusercontent.com/3408362/231411749-c1e3551c-5cad-452f-b664-077b73c6c1ee.png)
 
-A collection of places I've traveled.
+# 🗺️ Places - NFT App Template
+
+Places uses the [TurboETH](https://github.com/turbo-eth/template-web3-app) and [Solbase](https://github.com/Sol-DAO/solbase) for a simple and gas optimized digital collectable application you can spin up minutes.
+
+### Examples
+- [places.kames.me](https://places.kames.me/)
+
+# Getting Started
+
+*SSH*
+```bash
+git clone git@github.com:kamescg/places.git
+```
+
+*HTTPS*
+```bash
+git clone https://github.com/kamescg/places.git
+```
+
+The `pnpm` CLI is the recommended package manager but `npm` and `yarn` should work too.
+
+```bash
+pnpm install
+```
+
+#### Development
+```bash
+pnpm dev
+```
+
+#### Build
+```bash
+pnpm build
+```
+
+## 1-Click Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkamescg%2Fplaces&project-name=Places&repository-name=places&demo-title=Places&env=NEXT_PUBLIC_ALCHEMY_API_KEY&envDescription=How%20to%20get%20these%20env%20variables%3A&envLink=https%3A%2F%2Fgithub.com%2Fkamescg%2Fplaces%2Fblob%2Fmain%packages%2Fplaces-app%2F.env.example)
+
+### Configuration
+Since Places is a TurboRepo application we have to manually set the deployment configuration.
+
+#### Build & Development Settings
+- Build Command - `pnpm build`
+- Output Directory - `.next`
+- Install Command - `pnpm install`
+
+#### Root Directory
+- `packages/places-app`
+- ☑️ Include source files outside of the Root Directory in the Build Step
+
+[Click here for an image preview of the configration](https://user-images.githubusercontent.com/3408362/231420316-ee406a1c-ba4c-46b5-a7d7-571c390956c5.png)
+
+## Architecture
+
+Places is built using Turborepo - an incremental bundler and build system optimized for JavaScript and TypeScript
+
+#### Packages
+- [Application](https://github.com/kamescg/places/blob/main/packages/places-app) - `app/places-app`
+- [Smart Contracts](https://github.com/kamescg/places/blob/main/packages/places-sol) - `app/places-sol`
+
+#### Pages
+
+- [Home](https://github.com/kamescg/places/blob/main/packages/places-app/app/(general)/page.tsx) - `places-app/app/(general)/page.tsx`
+- [Create](https://github.com/kamescg/places/blob/main/packages/places-app/app/(general)/create/page.tsx) - `places-app/app/(general)/create/page.tsx`
+
+#### Components
+
+- [ButtonPlaceFactoryDeploy](https://github.com/kamescg/places/blob/main/packages/places-app/components/places-factory-deploy.tsx) - `places-app/components/places-factory-deploy.tsx`
+- [ButtonPlaceMint](https://github.com/kamescg/places/blob/main/packages/places-app/components/button-place-mint.tsx) - `places-app/components/button-place-mint.tsx`
+- [CardMintCollectable](https://github.com/kamescg/places/blob/main/packages/places-app/components/card-mint-collectable.tsx) - `places-app/components/`
+
+- [PlacesFactoryWriteCreatePlace](https://github.com/kamescg/places/blob/main/packages/places-app/components/places-factory-write-create-place.tsx) - `places-app/components/places-factory-write-create-place.tsx`
+- [PlaceFactoryEventPlaceCreated](https://github.com/kamescg/places/blob/main/packages/places-app/components/places-factory-event-place-created.tsx) - `places-app/components/places-factory-event-place-created.tsx`
+
+#### Smart Contracts
+
+- [Place](https://github.com/kamescg/places/blob/main/packages/places-sol/contracts/Place.sol) - `places-sol/contracts/Place.sol`
+- [PlaceFactory](https://github.com/kamescg/places/blob/main/packages/places-sol/contracts/PlaceFactory.sol) - `places-sol/contracts/PlaceFactory.sol`
+
+# How It's Built
+Places, the TurboETH template, uses a modern Typescript development stack.
+
+### Web3 Core
+- [Solbase](https://github.com/Sol-DAO/solbase) - Modern, opinionated, and gas optimized base for smart contract development.
+- [TurboETH](https://github.com/turbo-eth/template-web3-app) - Web3 Application Template
+- [WAGMI CLI](https://wagmi.sh/cli/getting-started) - Automatic React Hook Generation
+- [RainbowKit](https://www.rainbowkit.com/) - Wallet connection manager
+- [Sign-In With Ethereum](https://login.xyz/) - Account authentication
+
+### Web2 Frameworks
+- [TurboRepo](https://www.turboeth.xyz) - Turborepo is an incremental bundler and build system
+- [Vercel](https://vercel.com/) - App Infrastructure
+
+### Developer Experience
+- [TypeScript](https://www.typescriptlang.org/) – Static type checker for end-to-end typesafety
+- [Prettier](https://prettier.io/) – Opinionated code formatter for consistent code style
+- [ESLint](https://eslint.org/) – Pluggable linter for Next.js and TypeScript
+
+### User Interface
+- [TailwindCSS](https://tailwindcss.com) – Utility-first CSS framework for rapid UI development
+- [Radix](https://www.radix-ui.com/) – Primitives like modal, popover, etc. to build a stellar user experience
+- [Framer Motion](https://www.framer.com/motion/) – Motion library for React to animate components with ease
+- [Lucide](https://lucide.dev/docs/lucide-react) – Beautifully simple, pixel-perfect icons
